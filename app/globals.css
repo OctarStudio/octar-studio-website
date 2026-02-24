@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Octar Studio Design Tokens */
+  --background: #F7F7F5;
+  --foreground: #1E1E1E;
+  --card: #FFFFFF;
+  --card-foreground: #1E1E1E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1E1E1E;
+  --primary: #E35A2A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EFEFEE;
+  --secondary-foreground: #1E1E1E;
+  --muted: #EFEFEE;
+  --muted-foreground: rgba(30, 30, 30, 0.55);
+  --accent: #E35A2A;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(30, 30, 30, 0.12);
+  --input: rgba(30, 30, 30, 0.12);
+  --ring: #E35A2A;
+  --radius: 0px;
+
+  /* Octar-specific tokens */
+  --octar-bg-dark: #1E1E1E;
+  --octar-bg-light: #F7F7F5;
+  --octar-accent: #E35A2A;
+  --octar-accent-hover: #D34B1D;
+  --octar-text-muted-light: rgba(247, 247, 245, 0.55);
+  --octar-text-muted-dark: rgba(30, 30, 30, 0.55);
+  --octar-border-light: rgba(247, 247, 245, 0.12);
+  --octar-border-dark: rgba(30, 30, 30, 0.12);
+  --octar-card-bg: rgba(255, 255, 255, 0.03);
+  --octar-card-bg-hover: rgba(255, 255, 255, 0.06);
+}
+
+.dark {
+  --background: #1E1E1E;
+  --foreground: #F7F7F5;
+  --card: rgba(255, 255, 255, 0.03);
+  --card-foreground: #F7F7F5;
+  --popover: #1E1E1E;
+  --popover-foreground: #F7F7F5;
+  --primary: #E35A2A;
+  --primary-foreground: #FFFFFF;
+  --secondary: rgba(255, 255, 255, 0.06);
+  --secondary-foreground: #F7F7F5;
+  --muted: rgba(255, 255, 255, 0.06);
+  --muted-foreground: rgba(247, 247, 245, 0.55);
+  --accent: #E35A2A;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(247, 247, 245, 0.12);
+  --input: rgba(247, 247, 245, 0.12);
+  --ring: #E35A2A;
+}
+
+@theme inline {
+  --font-sans: 'General Sans', 'Geist', sans-serif;
+  --font-mono: 'Source Code Pro', 'Geist Mono', monospace;
+  --font-body: 'Source Sans 3', 'Geist', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius));
+  --radius-md: calc(var(--radius));
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius));
+  --color-sidebar: var(--background);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-accent: var(--accent);
+  --color-sidebar-accent-foreground: var(--accent-foreground);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Premium selection highlight */
+  ::selection {
+    background-color: rgba(227, 90, 42, 0.15);
+    color: inherit;
+  }
+}
+
+/* Octar motion system */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes count-line {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
